@@ -6,8 +6,8 @@ export default  function AddTodo({submitHandler}) {
 
     const [text, setText] = useState('')
 
-    const changeHandler = (val) => {
-        setText(val)
+    const changeHandler = (inputvalue) => {
+        setText(inputvalue)
     }
 
   return (
@@ -15,8 +15,10 @@ export default  function AddTodo({submitHandler}) {
         <TextInput
         style={styles.input}
         placeholder="new todo ..."
-        onChangeText={changeHandler}
+        onChangeText={(inputvalue)=>changeHandler(inputvalue)}
+        
         />
+        <Text>{text}</Text>
         <Button onPress={() => submitHandler(text)} title="Add" color={'coral'}/>
     </View>
   )
