@@ -9,7 +9,16 @@ export default function App() {
     { text: "buy coffee", key: "1" },
     { text: "create an app", key: "2" },
     { text: "play on the switch", key: "3" },
+    { text: "Eat my supper", key: "4" },
+    { text: "Eat my supper", key: "5" },
   ]);
+
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      console.log(key)
+     return prevTodos.filter( todo => todo.key != key)
+    })
+  }
   return (
     <View style={styles.container}>
       <Header/>
@@ -19,7 +28,7 @@ export default function App() {
           <FlatList
             data={todos}
             renderItem={({ item }) => 
-            <TodoItem todo = {item}/>
+            <TodoItem todo = {item} pressHandler={pressHandler}/>
           }
           />
         </View>
