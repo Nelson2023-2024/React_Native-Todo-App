@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import Header from './components/Header'
 
 export default function App() {
   const [todos, setTodos] = useState([
@@ -10,8 +11,7 @@ export default function App() {
   ]);
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      {/* Header */}
+      <Header/>
       <View style={styles.content}>
         {/* to form */}
         <View style={styles.list}>
@@ -35,4 +35,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 40,
   },
+  list:{
+    marginTop:20,
+  }
 });
